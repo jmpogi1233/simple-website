@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #fcb69f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .heading {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .confirmation-card h2 {
+            color: #ff6f61;
+            font-size: 2em;
+        }
+
+        .text {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .go-back-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+        .go-back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heading">Confirmation</div>
+
+    <div class="confirmation-card">
+        <h2>Your Selection</h2>
+
+        <div class="text" id="suggestionType"></div>
+        <div class="text" id="suggestionText"></div>
+        <div class="text" id="selectedDate"></div>
+
+        <button class="go-back-btn" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to display the selected data
+        function displayConfirmation() {
+            const suggestionType = getURLParameter('suggestion');
+            const suggestionText = getURLParameter('suggestionText');
+            const selectedDate = getURLParameter('date');
+
+            const suggestionTypeText = document.getElementById('suggestionType');
+            const suggestionTextContent = document.getElementById('suggestionText');
+            const selectedDateText = document.getElementById('selectedDate');
+
+            // Display the confirmation details
+            suggestionTypeText.textContent = `You chose to: ${suggestionType}`;
+            suggestionTextContent.textContent = `Your suggestion: ${suggestionText}`;
+            selectedDateText.textContent = `Selected Date: ${selectedDate}`;
+        }
+
+        // Function to go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+
+        // Call the display function when the page loads
+        window.onload = displayConfirmation;
+    </script>
+
+</body>
+</html>

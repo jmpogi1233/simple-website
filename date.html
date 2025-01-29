@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+            position: relative;
+        }
+
+        .invitation-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 2em;
+        }
+
+        p {
+            color: #333;
+            font-size: 1em;
+            margin: 15px 0;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+            padding: 10px 20px;
+        }
+
+        button:hover {
+            background-color: #ff3b2f;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .calendar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .calendar-container input[type="date"] {
+            margin-top: 10px;
+        }
+
+        .boxes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 45%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .error {
+            color: red;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        <div id="content">
+            <h1>Yeyyy! Thank you!</h1>
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXNudWl2eXZtNDkzMWUyOG5xcTlnbmgwaGpyMHlhOHllc2FuejhhNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8ydNXUthhXP018PLrC/giphy.gif" alt="Excited GIF" width="80%">
+            <div class="buttons-container">
+                <button onclick="window.location.href='where.html'">Click me</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

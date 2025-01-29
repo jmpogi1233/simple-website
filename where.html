@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #fcb69f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .heading {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .gif-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+        }
+
+        .text {
+            font-size: 1.5em;
+            color: #ff6f61;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff3b2f;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .invitation-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            z-index: 10;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 2em;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .invitation-card img {
+            width: 80%;
+        }
+
+        .text-only {
+            font-size: 1.5em;
+            color: #4CAF50;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+        .calendar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .calendar-container input[type="date"] {
+            padding: 10px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heading">What do you want to do?</div>
+
+    <div class="gif-container">
+        <div class="gif-box">
+            <div class="text">Motel</div>
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExemNodDNxZjhkZnQ3bnphMWcwc3k2MzhsazcyaXo3d244bTlobzYwdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46CA0XvcLfaT8T84/giphy.gif" alt="GIF 1">
+            <button onclick="showConfirmation('motel')">Confirm</button>
+        </div>
+
+        <div class="gif-box">
+            <div class="text">Gumala sa malayo</div>
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTF3a2FicmJtd2lkMDNkaDc1eWQ4bmtpYWZwZXpieWFpbXMyM2ZjZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RPjjqEpd5EnZK/giphy.gif" alt="GIF 2">
+            <button onclick="showConfirmation('travel')">Confirm</button>
+        </div>
+
+        <div class="gif-box">
+            <div class="text">Mag foodtrip sa labas</div>
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExemYzOTF0NHYwbXlxZXd0NXBpYnZzdXJpbnhseTV4c3RicW55YjNxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oz8xB06mHyoGE7ZoQ/giphy.gif" alt="GIF 3">
+            <button onclick="showConfirmation('foodtrip')">Confirm</button>
+        </div>
+
+        <div class="gif-box">
+            <div class="text">Magluto</div>
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExancycmdtODZyb2s4aGdkZ2c0eGdndmtwYjliYzY1d3JrYjlvZDQ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NRWLyviCQQhsk/giphy.gif" alt="GIF 4">
+            <button onclick="showConfirmation('cook')">Confirm</button>
+        </div>
+    </div>
+
+    <div class="invitation-card hidden" id="invitationCard">
+        <div id="content">
+            <h1 id="promptText">any suggestion?</h1>
+
+            <div class="text-only hidden" id="motelMessage">Malinaw!</div>
+
+            <div class="buttons-container">
+                <input type="text" id="suggestionInput" placeholder="Enter your suggestion...">
+                <button onclick="submitSuggestion()">Submit Suggestion</button>
+            </div>
+
+            <div class="calendar-container">
+                <input type="date" id="date-picker">
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <script>
+        function showConfirmation(type) {
+            document.querySelector('.heading').classList.add('hidden');
+            const gifContainers = document.querySelectorAll('.gif-box');
+            gifContainers.forEach(container => {
+                container.classList.add('hidden');
+                const text = container.querySelector('.text');
+                if (text) {
+                    text.classList.add('hidden');
+                }
+            });
+
+            const invitationCard = document.getElementById('invitationCard');
+            invitationCard.classList.remove('hidden');
+            const backButton = document.querySelector('.back-button');
+            backButton.style.display = 'block';
+
+            const promptText = document.getElementById('promptText');
+            const motelMessage = document.getElementById('motelMessage');
+            const suggestionInput = document.getElementById('suggestionInput');
+
+            if (type === 'motel') {
+                promptText.textContent = 'Any suggestion for a motel?';
+                motelMessage.classList.remove('hidden');
+                suggestionInput.classList.add('hidden');
+            } else {
+                motelMessage.classList.add('hidden');
+                promptText.textContent = 'Any suggestion for ' + type + '?';
+                suggestionInput.classList.remove('hidden');
+            }
+
+            localStorage.setItem('selectedSuggestion', type);
+        }
+
+        function submitSuggestion() {
+            const suggestion = document.getElementById('suggestionInput').value;
+            const selectedDate = document.getElementById('date-picker').value;
+            const selectedSuggestion = localStorage.getItem('selectedSuggestion');
+
+            if (suggestion && selectedDate) {
+                window.location.href = `final.html?suggestion=${selectedSuggestion}&suggestionText=${encodeURIComponent(suggestion)}&date=${selectedDate}`;
+            } else {
+                alert('Please enter a suggestion and select a date!');
+            }
+        }
+
+        function goBack() {
+            document.querySelector('.heading').classList.remove('hidden');
+            const gifContainers = document.querySelectorAll('.gif-box');
+            gifContainers.forEach(container => {
+                container.classList.remove('hidden');
+                const text = container.querySelector('.text');
+                if (text) {
+                    text.classList.remove('hidden');
+                }
+            });
+
+            const invitationCard = document.getElementById('invitationCard');
+            invitationCard.classList.add('hidden');
+            const backButton = document.querySelector('.back-button');
+            backButton.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
